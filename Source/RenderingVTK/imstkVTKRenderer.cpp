@@ -33,6 +33,7 @@
 #include <vtkTextProperty.h>
 
 #include <vtkCameraPass.h>
+#include <vtkMatrix4x4.h>
 #include <vtkOpenVRCamera.h>
 #include <vtkOpenVRRenderer.h>
 #include <vtkRenderPassCollection.h>
