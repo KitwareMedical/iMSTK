@@ -192,9 +192,10 @@ VTKOpenVRViewer::initModule()
     iStyle->addMovementActions();
 
     // Hide all controller models
-    for (uint32_t i = 0; i < vr::k_unMaxTrackedDeviceCount; i++)
+    for (uint32_t deviceIdIndex = 0; deviceIdIndex < vr::k_unMaxTrackedDeviceCount; ++deviceIdIndex)
     {
-        vtkVRModel* trackedDeviceModel = renWin->GetTrackedDeviceModel(i);
+        vtkOpenVRModel* trackedDeviceModel = vtkOpenVRModel::SafeDownCast(renWin->GetModelForDevice(
+            renWin->GetDeviceForOpenVRHandle(deviceIdIndex)));
         if (trackedDeviceModel != nullptr)
         {
             trackedDeviceModel->SetVisibility(false);
